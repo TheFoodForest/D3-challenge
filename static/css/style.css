@@ -1,4 +1,5 @@
-.tooltip {
+
+  .obesity-tooltip {
     position: absolute;
     width: 135px;
     height: 70px;
@@ -7,7 +8,35 @@
     font: 12px sans-serif;
     color: white;
     text-align: center;
-    background: #551aaf;
+    background: rgba(0, 0, 202, 0.7);
+    border: 0;
+    border-radius: 10px;
+  }
+
+  .healthcare-tooltip {
+    position: absolute;
+    width: 135px;
+    height: 90px;
+    padding: 2px;
+    padding-top: 8px;
+    font: 12px sans-serif;
+    color: white;
+    text-align: center;
+    background: rgba(0, 102, 0, 0.8);
+    border: 0;
+    border-radius: 10px;
+  }
+
+  .smokes-tooltip {
+    position: absolute;
+    width: 135px;
+    height: 70px;
+    padding: 2px;
+    padding-top: 8px;
+    font: 12px sans-serif;
+    color: white;
+    text-align: center;
+    background: rgba(207, 0, 0, 0.671);
     border: 0;
     border-radius: 10px;
   }
@@ -20,16 +49,26 @@
   }
   
   .active {
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 20px;
     fill: #000;
     fill: #551aaf;
     transition: fill 0.3s ease-out;
     text-anchor: middle;
   }
   
+  .x-active {
+    font-weight: 600;
+    font-size: 20px;
+    fill: #000;
+    fill: #000000;
+    transition: fill 0.3s ease-out;
+    text-anchor: middle;
+  }
+
   .inactive {
     font-weight: lighter;
-    fill: #551aaf;
+    fill: #000000;
     transition: fill 0.3s ease-out;
     text-anchor: middle;
   }
@@ -41,7 +80,48 @@
 
   .circle-text {
       font-size: small;
-      color: black;
+      fill: white;
       text-anchor: middle;
-      z-index: 0;
+  }
+
+  .smoke-active {
+    font-weight: 600;
+    font-size: 20px;
+    fill: #000;
+    fill: red;
+    transition: fill 0.3s ease-out;
+    text-anchor: middle;
+  }
+
+  .health-active {
+    font-weight: 600;
+    font-size: 20px;
+    fill: #000;
+    fill: green;
+    transition: fill 0.3s ease-out;
+    text-anchor: middle;
+  }
+
+  .obese-active {
+    font-weight: 600;
+    font-size: 20px;
+    fill: #000;
+    fill: blue;
+    transition: fill 0.3s ease-out;
+    text-anchor: middle;
+  }
+
+  .obesity-y-axis {
+    stroke: blue;
+    transition: fill 1s ease-out;
+  }
+
+  .healthcare-y-axis {
+    stroke: green;
+  
+  }
+
+  .smokes-y-axis {
+    stroke: red;
+    transition: fill 1s ease-out;
   }
