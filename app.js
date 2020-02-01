@@ -16,8 +16,8 @@ function makeResponsive() {
     var margin = {
         top: 50,
         bottom: 90,
-        right: 50,
-        left: 110
+        right: svgWidth/3,
+        left: 235
     };
 
     var height = svgHeight - margin.top - margin.bottom;
@@ -69,7 +69,7 @@ function renderCircles(circlesGroup, newXscale, newYscale, chosenXAxis, chosenYa
     .duration(1000)
     .attr('cx', d=> newXscale(d[chosenXAxis]))
     .attr('cy', d => newYscale(d[chosenYaxis]))
-    .attr('r', 20)
+    .attr('r', 15)
     .attr('fill', color);
 
     
@@ -164,7 +164,7 @@ d3.csv('static/data/data.csv').then(function(demoData) {
                                     .append("circle")
                                     .attr('cx', d => xLinScale(d[chosenXAxis]))
                                     .attr('cy', d => yLinScale(d[chosenYaxis]))
-                                    .attr('r', 20)
+                                    .attr('r', 15)
                                     .attr('fill','blue')
                                     .attr('opacity', "0.8");
     
@@ -207,32 +207,35 @@ d3.csv('static/data/data.csv').then(function(demoData) {
                                 .text('Household Income (Median)');
 
     var healthLabel = chartGroup.append('text')
-                                .attr('transform', 'rotate(-90)')
-                                .attr('y', 0 - (margin.left - 40))
-                                .attr('x', 0 - (height / 2))
+                                .attr('transform', 'rotate(0)')
+                                .attr('y', height/2)
+                                .attr('x', -125)
                                 .attr('value', 'healthcare')
                                 .attr('dy', '1em')
                                 .classed('axis-text', true)
+                                .classed('y', true)
                                 .classed('inactive', true)
                                 .text("Lacks Healthcare (%)");
 
     var obeseLabel = chartGroup.append('text')
-                                .attr('transform', 'rotate(-90)')
-                                .attr('y', 0 - (margin.left - 20))
-                                .attr('x', 0 - (height / 2))
+                                .attr('transform', 'rotate(0)')
+                                .attr('y', height/2 - 22)
+                                .attr('x', -125)
                                 .attr('value', 'obesity')
                                 .attr('dy', '1em')
                                 .classed('axis-text', true)
+                                .classed('y', true)
                                 .classed('obese-active', true)
                                 .text("Obese (%)");
 
     var smokeLabel = chartGroup.append('text')
-                                .attr('transform', 'rotate(-90)')
-                                .attr('y', 0 - (margin.left - 60))
-                                .attr('x', 0 - (height / 2))
+                                .attr('transform', 'rotate(0)')
+                                .attr('y', height/2 + 22)
+                                .attr('x', -125)
                                 .attr('value', 'smokes')
                                 .attr('dy', '1em')
                                 .classed('axis-text', true)
+                                .classed('y', true)
                                 .classed('inactive', true)
                                 .text("Smokes (%)");
 

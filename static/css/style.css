@@ -47,6 +47,11 @@
     fill: #551aaf;
     text-anchor: middle;
   }
+
+  .y {
+    font-family: sans-serif;
+    text-anchor: right;
+  }
   
   .active {
     font-weight: 600;
