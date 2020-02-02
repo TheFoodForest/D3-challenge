@@ -2,7 +2,7 @@
 
 function makeResponsive() {
 
-    var svgArea = d3.select("div").select('svg');
+    var svgArea = d3.select(".chart").select('svg');
 
     
 
@@ -11,12 +11,12 @@ function makeResponsive() {
     }
 
     var svgWidth = window.innerWidth;
-    var svgHeight = window.innerHeight;
+    var svgHeight = window.innerHeight - 128;
 
     var margin = {
         top: 50,
         bottom: 90,
-        right: svgWidth/3,
+        right: svgWidth/3.5,
         left: 235
     };
 
@@ -114,7 +114,7 @@ function updateToolTip(chosenXAxis, chosenYaxis, circlesGroup, ttip) {
 
     var toolTip = d3.tip()
                     .attr('class',`${ttip}`)
-                    .offset([100,-75])
+                    .offset([90,-75])
                     .html(function (d){
                         return (`<strong>${d.state}</strong><br>${ylabel}${d[chosenYaxis]}<br>${xlabel}${d[chosenXAxis]}`)
                     });
@@ -158,6 +158,7 @@ d3.csv('static/data/data.csv').then(function(demoData) {
 
     
 
+    
     var circlesGroup = chartGroup.selectAll("circle")
                                     .data(demoData)
                                     .enter()
@@ -166,7 +167,7 @@ d3.csv('static/data/data.csv').then(function(demoData) {
                                     .attr('cy', d => yLinScale(d[chosenYaxis]))
                                     .attr('r', 15)
                                     .attr('fill','blue')
-                                    .attr('opacity', "0.8");
+                                    .attr('opacity', "0.7");
     
     var circleText = chartGroup.append("g").selectAll('text')
                                     .data(demoData)
